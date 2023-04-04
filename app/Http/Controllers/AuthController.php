@@ -71,14 +71,16 @@ class AuthController extends Controller
         }
     }
 
-    public function show(User $user){
+    public function show(User $user)
+    {
         $user->load('events');
         return $user;
     }
 
     public function destroy($id)
     {
-        return User::destroy($id);
+        User::destroy($id);
+        return response()->json(['message'=>'Deleted'], 200);
     }
 
     public function billing(StoreBillingRequest $request)
@@ -89,8 +91,8 @@ class AuthController extends Controller
                 'card_number' => $request->card_number,
                 'expriy_date' => $request->expiry_date,
             ];
-            if(Paymentdetails::find(auth()->id())){
-                return response()->json(['msg' => 'Already Exists'], 400);
+            if (Paymentdetails::find(auth()->id())) {
+                return response()->json(['message' => 'Already Exists'], 400);
             }
             $billingDetails = new Paymentdetails($request->validated());
             $billingDetails->token = Crypt::encryptString(json_encode($details));
@@ -107,13 +109,16 @@ class AuthController extends Controller
 
     public function getBilling($user)
     {
-        try{
+        try {
 
             $details =  Paymentdetails::find($user);
             $decrypted = Crypt::decryptString($details->token);
-            return json_decode($decrypted);
-
-
-        }catch(Exception $e){}
+            $data = ['data' => json_decode($decrypted), 'message' => 'Billing Retrived Successfully', 'success' => true];
+            return response()->json($data, 200);
+        } catch (Exception $e) {
+            $errorMsg = $e->getMessage();
+            $data = ['data' => null, 'message' => 'Billing Not Retrived', 'success' => false, 'error' => $errorMsg];
+            return response()->json($data, 500);
+        }
     }
 }

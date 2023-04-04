@@ -84,6 +84,7 @@ class EventTicketController extends Controller
      */
     public function destroy($id)
     {
-        return Ticket::destroy($id);
+        Ticket::destroy($id);
+        return response()->json(['message'=>'Deleted'], 200);
     }
 }

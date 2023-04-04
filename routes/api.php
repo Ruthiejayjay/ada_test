@@ -30,18 +30,22 @@ Route::get('/tickets', [EventTicketController::class, 'index']);
 
 //protected routes
 Route::group(['middleware' => ['auth:sanctum']],function () {
+    //events routes
     Route::post('/events/create', [EventController::class, 'store']);
     Route::patch('/events/manage/{event}', [EventController::class, 'update']);
     Route::delete('/events/delete/{id}', [EventController::class, 'destroy']);
+    //tickets routes
+    Route::post('/tickets/create/{event_id?}', [EventTicketController::class, 'store']);
+    Route::get('/tickets/info/{id}', [EventTicketController::class, 'show']);
+    Route::patch('/tickets/manage/{id}', [EventTicketController::class, 'update']);
+    Route::delete('/tickets/delete/{id}', [EventTicketController::class, 'destroy']);
+    //users routes
     Route::patch('/users/update/{id}', [AuthController::class, 'update']);
     Route::delete('/users/delete/{id}', [AuthController::class, 'destroy']);
     Route::get('/users/events/{user}', [AuthController::class, 'show']);
     Route::get('/users/billing/{user}', [AuthController::class, 'getBilling']);
     Route::post('/users/billing/add', [AuthController::class, 'billing']);
-    Route::post('/tickets/create/{event_id?}', [EventTicketController::class, 'store']);
-    Route::get('/tickets/info/{id}', [EventTicketController::class, 'show']);
-    Route::patch('/tickets/manage/{id}', [EventTicketController::class, 'update']);
-    Route::delete('/tickets/delete/{id}', [EventTicketController::class, 'destroy']);
+   
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

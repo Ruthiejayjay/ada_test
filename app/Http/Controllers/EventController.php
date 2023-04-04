@@ -80,6 +80,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        return Event::destroy($id);
+        Event::destroy($id);
+        return response()->json(['message'=>'Deleted'], 200);
     }
 }
