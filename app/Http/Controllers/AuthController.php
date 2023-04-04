@@ -71,6 +71,11 @@ class AuthController extends Controller
         }
     }
 
+    public function show(User $user){
+        $user->load('events');
+        return $user;
+    }
+
     public function destroy($id)
     {
         return User::destroy($id);
@@ -80,10 +85,13 @@ class AuthController extends Controller
     {
         try {
             $details =  [
-                'cvv' => '',
-                'card_number' => '',
-                'expriy_date' => date(''),
+                'cvv' => $request->cvv,
+                'card_number' => $request->card_number,
+                'expriy_date' => $request->expiry_date,
             ];
+            if(Paymentdetails::find(auth()->id())){
+                return response()->json(['msg' => 'Already Exists'], 400);
+            }
             $billingDetails = new Paymentdetails($request->validated());
             $billingDetails->token = Crypt::encryptString(json_encode($details));
             $billingDetails->user_id = auth()->id();
@@ -97,7 +105,15 @@ class AuthController extends Controller
         }
     }
 
-    public function getBilling()
+    public function getBilling($user)
     {
+        try{
+
+            $details =  Paymentdetails::find($user);
+            $decrypted = Crypt::decryptString($details->token);
+            return json_decode($decrypted);
+
+
+        }catch(Exception $e){}
     }
 }

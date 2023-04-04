@@ -35,7 +35,8 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::delete('/events/delete/{id}', [EventController::class, 'destroy']);
     Route::patch('/users/update/{id}', [AuthController::class, 'update']);
     Route::delete('/users/delete/{id}', [AuthController::class, 'destroy']);
-    Route::get('/users/events', [UserEventController::class, 'index']);
+    Route::get('/users/events/{user}', [AuthController::class, 'show']);
+    Route::get('/users/billing/{user}', [AuthController::class, 'getBilling']);
     Route::post('/users/billing/add', [AuthController::class, 'billing']);
     Route::post('/tickets/create/{event_id?}', [EventTicketController::class, 'store']);
     Route::get('/tickets/info/{id}', [EventTicketController::class, 'show']);
@@ -43,6 +44,6 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::delete('/tickets/delete/{id}', [EventTicketController::class, 'destroy']);
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

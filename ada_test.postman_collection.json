@@ -1,0 +1,1134 @@
+{
+	"info": {
+		"_postman_id": "cc7f9672-3280-4061-acb9-5fcce55f12eb",
+		"name": "ada_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17049297"
+	},
+	"item": [
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "get events",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/events/explore?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"explore"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"description": "This gets all the events on the db. Its a public api."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "test event ",
+									"description": "text, required",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "test location",
+									"description": "String, not requied",
+									"type": "text"
+								},
+								{
+									"key": "location_tip",
+									"value": "test location_tip",
+									"description": "String, not required",
+									"type": "text"
+								},
+								{
+									"key": "event_type",
+									"value": "physical",
+									"description": "Enum, can only be physical and virtual, required",
+									"type": "text"
+								},
+								{
+									"key": "virtual_meet_link",
+									"value": "test virtual_url",
+									"description": "Virtual Meet url, not required",
+									"type": "text"
+								},
+								{
+									"key": "event_categories",
+									"value": "product_review",
+									"description": "Enum, can only be product_review and product_launch",
+									"type": "text"
+								},
+								{
+									"key": "custom_url",
+									"value": "test custom_url",
+									"description": "Url to event, required",
+									"type": "text"
+								},
+								{
+									"key": "event_frequency",
+									"value": "recurring",
+									"description": "Enum, can only be recurring and single, required",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "11/02/2024",
+									"description": "Event start Date, required, MM/DD/YYYY",
+									"type": "text"
+								},
+								{
+									"key": "start_time",
+									"value": "10:00",
+									"description": "Event start Time, required",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "12:00",
+									"description": "Event end Time, required ",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "11/03/2024",
+									"description": "Event end Date, required, MM/DD/YYYY",
+									"type": "text"
+								},
+								{
+									"key": "twitter_url",
+									"value": "test twitter_url",
+									"description": "Twiter link to event, required",
+									"type": "text"
+								},
+								{
+									"key": "facebook_url",
+									"value": "test facebook_url",
+									"description": "Facebook link to event, required",
+									"type": "text"
+								},
+								{
+									"key": "instagram_url",
+									"value": "test instagram_url",
+									"description": "instagram link to event, required",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "test",
+									"description": "Title of event, required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/events/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "test event 223",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "test location",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location_tip",
+									"value": "test location_tip",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "event_type",
+									"value": "virtual",
+									"type": "text"
+								},
+								{
+									"key": "virtual_meet_link",
+									"value": "test virtual_url23",
+									"type": "text"
+								},
+								{
+									"key": "event_categories",
+									"value": "product_review",
+									"type": "text"
+								},
+								{
+									"key": "custom_url",
+									"value": "test custom_url23",
+									"type": "text"
+								},
+								{
+									"key": "event_frequency",
+									"value": "recurring",
+									"type": "text"
+								},
+								{
+									"key": "start_date",
+									"value": "11/02/2024",
+									"type": "text"
+								},
+								{
+									"key": "start_time",
+									"value": "10:00",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "12:00",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "11/03/2024",
+									"type": "text"
+								},
+								{
+									"key": "twitter_url",
+									"value": "test twitter_url",
+									"type": "text"
+								},
+								{
+									"key": "facebook_url",
+									"value": "test facebook_url23",
+									"type": "text"
+								},
+								{
+									"key": "instagram_url",
+									"value": "test instagram_url",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/events/manage/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"manage",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "UcAAk4fimbO22VDlbxd9XBDvL28eYfoXhjdSvexj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "description",
+									"value": "test event 2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "test location",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "location_tip",
+									"value": "test location_tip",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "event_type",
+									"value": "virtual",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "virtual_meet_link",
+									"value": "test virtual_url",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "event_categories",
+									"value": "product_review",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "custom_url",
+									"value": "test custom_url",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "event_frequency",
+									"value": "recurring",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "11/02/2024",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_time",
+									"value": "10:00",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_time",
+									"value": "12:00",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "11/03/2024",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "twitter_url",
+									"value": "test twitter_url",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "facebook_url",
+									"value": "test facebook_url",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "instagram_url",
+									"value": "test instagram_url",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/events/delete/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get an event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/events/explore/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"events",
+								"explore",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "UcAAk4fimbO22VDlbxd9XBDvL28eYfoXhjdSvexj",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test2@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345621ty",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345621ty",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "pZBXhMBcnZPgFJznod08fjJNOjh5Uv1zgiyofsKq",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/users/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/users/events/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add billing details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cvv",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "expiry_date",
+									"value": "11/2028",
+									"type": "text"
+								},
+								{
+									"key": "card_number",
+									"value": "1234567890123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/users/billing/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"billing",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users biiling details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/users/billing/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"billing",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test ticket",
+									"description": "string",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test description",
+									"description": "text",
+									"type": "text"
+								},
+								{
+									"key": "ticket_type",
+									"value": "paid",
+									"description": "Enum",
+									"type": "text"
+								},
+								{
+									"key": "ticket_stock",
+									"value": "limited",
+									"description": "Enum",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50",
+									"description": "Integer",
+									"type": "text"
+								},
+								{
+									"key": "no_of_stock",
+									"value": "200",
+									"description": "Integer",
+									"type": "text"
+								},
+								{
+									"key": "purchase_limit",
+									"value": "190",
+									"description": "Integer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/tickets/create?event_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tickets",
+								"create"
+							],
+							"query": [
+								{
+									"key": "event_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test ticket",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test description",
+									"type": "text"
+								},
+								{
+									"key": "ticket_type",
+									"value": "paid",
+									"type": "text"
+								},
+								{
+									"key": "ticket_stock",
+									"value": "limited",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "no_stock",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "purchase_limit",
+									"value": "19000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/tickets/manage/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tickets",
+								"manage",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a single ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|1uIUqjrPuEm3QM8EJT8Y37zqowbk1onaC9jqHRDH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/tickets/info/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tickets",
+								"info",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tickets created for an event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|HARlMYqYy3gAEe38f3fvhiZamxfC5UosgKoKB9UK",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/tickets/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tickets",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "test-user",
+							"description": "Users first name must be a String",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "test-user",
+							"description": "User's Last name must be a string",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Ghana",
+							"description": "Country must be Nigeria or Ghana",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345621",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345621",
+							"type": "text"
+						},
+						{
+							"key": "acc_type",
+							"value": "Individual",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345621",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
