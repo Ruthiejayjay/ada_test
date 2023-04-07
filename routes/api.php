@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTicketController;
+use App\Http\Controllers\TicketTransactionsController;
 use App\Http\Controllers\UserEventController;
 use App\Models\Event;
 use Illuminate\Http\Request;
@@ -45,6 +46,9 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::get('/users/events/{user}', [AuthController::class, 'show']);
     Route::get('/users/billing/{user}', [AuthController::class, 'getBilling']);
     Route::post('/users/billing/add', [AuthController::class, 'billing']);
+    //transaction routes
+    Route::post('/tickets/checkout/{ticket_id?}', [TicketTransactionsController::class, 'store']);
+    Route::get('/tickets/transactions', [TicketTransactionsController::class, 'index']);
    
 });
 

@@ -30,7 +30,7 @@ class EventTicketController extends Controller
      */
     public function store(StoreEventTicketRequest $request)
     {
-    
+
         try {
             $ticket = new Ticket($request->validated());
             $ticket->event_id = $request->event_id;
@@ -64,12 +64,12 @@ class EventTicketController extends Controller
      */
     public function update(UpdateEventTicketRequest $request, $id)
     {
-        try{
+        try {
             $ticket = Ticket::find($id);
             $ticket->update($request->all());
             $data = ['data' => $ticket, 'message' => 'Ticket Updated Successfully', 'success' => true];
             return response()->json($data, 200);
-        }catch(Exception $e){
+        } catch (Exception $e) {
             $errorMsg = $e->getMessage();
             $data = ['data' => null, 'message' => 'Ticket Not Updated', 'success' => false, 'error' => $errorMsg];
             return response()->json($data, 500);
@@ -85,6 +85,8 @@ class EventTicketController extends Controller
     public function destroy($id)
     {
         Ticket::destroy($id);
-        return response()->json(['message'=>'Deleted'], 200);
+        return response()->json(['message' => 'Deleted'], 200);
     }
+
+
 }

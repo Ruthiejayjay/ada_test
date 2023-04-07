@@ -20,7 +20,7 @@ class CreateTicketTransactionsTable extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->integer('fee');
-            $table->enum('status', ['pending', 'successful', 'failed']);
+            $table->string('status')->default('pending');
             $table->integer('no_of_purchase');
             $table->integer('amount');
             $table->foreignIdFor(Ticket::class)->constrained()->cascadeOnDelete();
