@@ -25,10 +25,10 @@ class CreateEventsTable extends Migration
             $table->enum('event_categories',['product_launch', 'product_review']);
             $table->text('custom_url');
             $table->enum('event_frequency',['single', 'recurring']);
-            $table->date('start_date');
-            $table->dateTime('start_time');
-            $table->date('end_date');
-            $table->dateTime('end_time');
+            $table->string('start_date');
+            $table->string('start_time');
+            $table->string('end_date');
+            $table->string('end_time');
             $table->text('twitter_url');
             $table->text('facebook_url');
             $table->text('instagram_url');
